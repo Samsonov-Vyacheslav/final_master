@@ -11,11 +11,11 @@ mkdir -pm 777 $BACKUP_DIRECTORY
 
 MYSQL=$"-u $MYSQL_USER -p$MYSQL_PASSWORD -h $MYSQL_HOST -P $MYSQL_PORT"
 
-#Созздание базы
+#Создание базы
 echo "CREATE DATABASE wordpress;" |  mysql $MYSQL 2>/dev/null 
 
-#Создание пользователя
-echo "CREATE USER root@localhost IDENTIFIED BY '$MYSQL_PASSWORD'; GRANT ALL PRIVILEGES ON wordpress.* TO root@localhost; FLUSH PRIVILEGES;" |  mysql $MYSQL
+#Создание пользователя, если он не был создан ранее!
+#echo "CREATE USER root@localhost IDENTIFIED BY '$MYSQL_PASSWORD'; GRANT ALL PRIVILEGES ON wordpress.* TO root@localhost; FLUSH PRIVILEGES;" |  mysql $MYSQL
 
 mkdir /var/backup
 
